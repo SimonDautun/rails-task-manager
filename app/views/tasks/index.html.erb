@@ -1,7 +1,15 @@
-<h1>My task</h1>
+<div class="container">
+  <h1>My task</h1>
+</div>
 
-  <% @tasks.each do |task| %>
-    <%= check_box_tag(task, value = "1", checked = task.completed) %>
-    <%= label_tag(:task, task.title) %>
-  <% end %>
-
+<div class="container">
+  <ul class="list-group">
+    <% @tasks.each do |task| %>
+     <li class="list-group-item w-25 p-3"> <%= check_box_tag(task, value = "1", checked = task.completed) %>
+      <%= label_tag do %>
+        <%= link_to task.title, task_path(task) %>
+      <% end %>
+    <% end %>
+    </li>
+  </ul>
+</div>
